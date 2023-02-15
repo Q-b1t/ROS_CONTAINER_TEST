@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="turtlesim" type="turtlesim_node" name="el_turtlesim" />
+    <node pkg="tutle_interphase" type="turtlePublisher.py" name="movement" output="screen"/>
+</launch> 

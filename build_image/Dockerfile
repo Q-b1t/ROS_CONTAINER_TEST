@@ -13,7 +13,13 @@ RUN mkdir -p src/${EXTERNAL_BINDMOUNT}
 
 USER root
 
-COPY repair_config_file.sh .
+ENV NVIDIA_VISIBLE_DEVICES \
+    ${NVIDIA_VISIBLE_DEVICES:-all}
+    
+ENV NVIDIA_DRIVER_CAPABILITIES \
+    ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+
+SHELL [ "/bin/bash" , "-c" ]
 
 FROM env_setup AS linux_dependencies
 # usefull only if you are using c++ nodes and/or gazebo and/or opencv
@@ -37,8 +43,9 @@ apt-get install -y ros-${ROS_DISTRO}-turtlesim
 
 # add as many dependencies as you need 
 
-FROM ros_dependencies AS python-libs
+#FROM ros_dependencies AS python-libs
 # install opencv
-RUN pip3 install opencv-contrib-python
-
+#RUN pip3 install scikit-build && \
+#    pip3 install opencv-contrib-python==4.6.0.66 && \
+#    pip3 install pygame
 CMD ["bash"]
