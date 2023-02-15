@@ -39,8 +39,12 @@ RUN apt-get update && \
 apt-get install -y ros-${ROS_DISTRO}-ros-control ros-${ROS_DISTRO}-ros-controllers ros-${ROS_DISTRO}-gazebo-msgs && \
 apt-get install -y ros-${ROS_DISTRO}-gazebo-ros ros-${ROS_DISTRO}-gazebo-ros-control && \ 
 apt-get install -y ros-${ROS_DISTRO}-rviz && \
-apt-get install -y ros-${ROS_DISTRO}-turtlesim
+apt-get install -y ros-${ROS_DISTRO}-turtlesim && \
+apt-get install -y ros-${ROS_DISTRO}-rqt && \
+apt-get install -y ros-${ROS_DISTRO}-rqt-graph && \
+apt-get install -y ros-${ROS_DISTRO}-rqt-common-plugins
 
+ 
 # add as many dependencies as you need 
 
 #FROM ros_dependencies AS python-libs
