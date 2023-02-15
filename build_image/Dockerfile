@@ -9,7 +9,7 @@ ARG INTERNAL_WORKSPACE=/workspace
 
 WORKDIR ${INTERNAL_WORKSPACE} 
 
-RUN mkdir -p src/${EXTERNAL_BINDMOUNT}
+RUN mkdir src
 
 USER root
 
